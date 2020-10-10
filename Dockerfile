@@ -1,15 +1,18 @@
 FROM node:10
 
-WORKDIR /user/serc/app
+# Setting working directory. All the path will be relative to WORKDIR
+WORKDIR /usr/src/app
 
-ENV PORT 8080
-ENV HOST 0.0.0.0
 
+# Installing dependencies
 COPY package*.json ./
+RUN npm install
 
-RUN npm install --only=production
-
+# Copying source files
 COPY . .
 
+# Building app
 RUN npm run build
+
+# Running the app
 CMD [ "npm", "start" ]
