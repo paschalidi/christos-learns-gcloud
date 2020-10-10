@@ -7,7 +7,7 @@ ENV HOST 0.0.0.0
 
 COPY package.json ./
 
-RUN npm ci
+RUN npm install --only=production
 
 COPY . .
 
