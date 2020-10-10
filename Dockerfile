@@ -12,3 +12,4 @@ RUN npm install --only=production
 COPY . .
 
 RUN npm run build
+RUN npm start
